@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/shibam/Desktop/cs/MPS/junit-platform-console-standalone-1.10.0 copy.jar"
+    ]
+}
