@@ -20,6 +20,7 @@ public class SortTester {
 
   Sorter sorter;
 
+
   // +-------+-------------------------------------------------------
   // | Tests |
   // +-------+
@@ -31,6 +32,7 @@ public class SortTester {
 
   @Test
   public void orderedStringTest() {
+    sorter = new MergeSort();
     String[] original = { "alpha", "bravo", "charlie", "delta", "foxtrot" };
     String[] expected = original.clone();
     sorter.sort(original, (x, y) -> x.compareTo(y));
@@ -39,10 +41,11 @@ public class SortTester {
 
   @Test
   public void reverseOrderedStringTest() {
+    sorter = new InsertionSort();
     String[] original = { "foxtrot", "delta", "charlie", "bravo", "alpha" };
     String[] expected = { "alpha", "bravo", "charlie", "delta", "foxtrot" };
     sorter.sort(original, (x, y) -> x.compareTo(y));
-    assertArrayEquals(original, expected);
+    assertArrayEquals(expected, original);
   } // orderedStringTest
 
 } // class SortTester

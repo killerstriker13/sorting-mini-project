@@ -59,42 +59,28 @@ public class MergeSort implements Sorter {
    * Preconditions: Each subarray is sorted accorting to comparator.
    */
   static <T> void merge(T[] vals, int lo, int mid, int hi, Comparator<? super T> comparator) {
-    T[] tempL = Arrays.copyOfRange(vals, lo, mid);
-    T[] tempR = Arrays.copyOfRange(vals, mid, hi);
+    T[] tempL = Arrays.copyOfRange(vals, lo, mid+1);
+    T[] tempR = Arrays.copyOfRange(vals, mid+1, hi+1);
 
     int l = 0;
     int r = 0;
     int i = lo;
 
-    while (l < tempL.length && r < tempR.length){
-      if(comparator.compare(tempL[l], tempR[r]) < 0) {
-        vals[i] = tempL[l];
-        l++;
-        i++;
-      }
-      else{
-        vals[i] = tempR[r];
-        r++;
-        i++;
+    while (l < tempL.length && r < tempR.length) {
+      if (comparator.compare(tempL[l], tempR[r]) < 0) {
+          vals[i++] = tempL[l++];
+      } else {
+          vals[i++] = tempR[r++];
       }
     }
 
-    if (l < tempL.length) {
-      for(int j = i; j < hi; j++) {
-        vals[j] = tempL[l];
-        j++;
-        l++;
-      }
-    }
-    else {
-      for(int j = i; j < hi; j++) {
-        vals[j] = tempR[r];
-        j++;
-        r++;
-      }
+    while (l < tempL.length) {
+      vals[i++] = tempL[l++];
     }
 
-    
+    while (r < tempR.length) {
+      vals[i++] = tempR[r++];
+    }  
   } // merge
 } // class MergeSort
 
