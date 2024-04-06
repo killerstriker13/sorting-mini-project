@@ -41,7 +41,7 @@ public class SortTester {
 
   @Test
   public void reverseOrderedStringTest() {
-    sorter = new InsertionSort();
+    sorter = new MukhopadhyayShibamSort();
     String[] original = { "foxtrot", "delta", "charlie", "bravo", "alpha" };
     String[] expected = { "alpha", "bravo", "charlie", "delta", "foxtrot" };
     sorter.sort(original, (x, y) -> x.compareTo(y));
